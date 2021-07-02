@@ -42,7 +42,7 @@ function GetData(buttonName, seconds) {
     }
     fetch(uri, initDetails)
         .then(response => {
-            if (response.status !== 200) {
+            if (response.status !== 200 && response.status !== 201) {
 
                 appendTextArea('Looks like there was a problem. Status Code: ' + response.status);
             }
@@ -55,7 +55,7 @@ function GetData(buttonName, seconds) {
 
         })
         .catch(err => {
-            appendTextArea('Fetch Error :-S', err);
+            appendTextArea('Fetch Error :-S ' + err);
         });
     appendTextArea(output)
 }
